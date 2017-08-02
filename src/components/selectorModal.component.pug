@@ -1,0 +1,8 @@
+.modal-body
+    .list-group
+        a.list-group-item(*ngFor='let shell of shells; let i = index', (click)='modalInstance.close(shell)') 
+            strong.mr-2(*ngIf='i < 10') {{i}}
+            span {{shell.name}}
+
+//.modal-footer
+    button.btn.btn-outline-primary((click)='close()') Cancel
