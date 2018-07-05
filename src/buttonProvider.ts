@@ -1,4 +1,5 @@
 import { AsyncSubject } from 'rxjs'
+import { first } from 'rxjs/operators'
 import { Injectable, Inject } from '@angular/core'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { HotkeysService, ToolbarButtonProvider, IToolbarButton, Logger, LogService } from 'terminus-core'
@@ -31,7 +32,7 @@ export class ButtonProvider extends ToolbarButtonProvider {
     }
 
     activate () {
-        this.shells$.first().subscribe(shells => {
+        this.shells$.pipe(first()).subscribe(shells => {
             let modal = this.ngbModal.open(SelectorModalComponent)
             modal.componentInstance.shells = shells
             modal.result.then(shell => {
