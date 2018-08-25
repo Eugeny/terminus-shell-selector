@@ -1,6 +1,6 @@
 {
   "name": "terminus-shell-selector",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Shell selector popup for Terminus",
   "keywords": [
     "terminus-plugin"
@@ -21,6 +21,7 @@
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
     "@angular/forms": "^6.0.0",
+    "@angular/platform-browser": "6.0.0",
     "@ng-bootstrap/ng-bootstrap": "^2.2.0",
     "@types/webpack-env": "^1.13.0",
     "apply-loader": "^2.0.0",
@@ -29,7 +30,8 @@
     "pug": "^2.0.0-rc.3",
     "pug-loader": "^2.3.0",
     "rxjs": "^6.2.1",
-    "terminus-core": "^1.0.0-alpha.23-8-gcdc7daf",
+    "svg-inline-loader": "^0.8.0",
+    "terminus-core": "^1.0.0-alpha.49",
     "terminus-terminal": "^1.0.0-alpha.23-8-gcdc7daf",
     "typescript": "^2.2.2",
     "webpack": "^2.3.3"

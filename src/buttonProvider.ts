@@ -1,25 +1,24 @@
 import { AsyncSubject } from 'rxjs'
 import { first } from 'rxjs/operators'
 import { Injectable, Inject } from '@angular/core'
+import { DomSanitizer } from '@angular/platform-browser'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
-import { HotkeysService, ToolbarButtonProvider, IToolbarButton, Logger, LogService } from 'terminus-core'
+import { HotkeysService, ToolbarButtonProvider, IToolbarButton } from 'terminus-core'
 import { IShell, ShellProvider, TerminalService } from 'terminus-terminal'
 import { SelectorModalComponent } from './components/selectorModal.component'
 
 @Injectable()
 export class ButtonProvider extends ToolbarButtonProvider {
     private shells$ = new AsyncSubject<IShell[]>()
-    private logger: Logger
 
     constructor (
         private terminal: TerminalService,
         private ngbModal: NgbModal,
-        log: LogService,
+        private domSanitizer: DomSanitizer,
         @Inject(ShellProvider) shellProviders: ShellProvider[],
         hotkeys: HotkeysService,
     ) {
         super()
-        this.logger = log.create('shellSelectorButton')
         Promise.all(shellProviders.map(x => x.provide())).then(shellLists => {
             this.shells$.next(shellLists.reduce((a, b) => a.concat(b)))
             this.shells$.complete()
@@ -43,9 +42,10 @@ export class ButtonProvider extends ToolbarButtonProvider {
 
     provide (): IToolbarButton[] {
         return [{
-            icon: 'th-large',
+            icon: this.domSanitizer.bypassSecurityTrustHtml(require('./icons/list.svg')),
             weight: 5,
             title: 'Select shell',
+            touchBarNSImage: 'NSTouchBarIconViewTemplate',
             click: async () => {
                 this.activate()
             }
