@@ -1,6 +1,6 @@
 {
   "name": "terminus-shell-selector",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Shell selector popup for Terminus",
   "keywords": [
     "terminus-plugin"
