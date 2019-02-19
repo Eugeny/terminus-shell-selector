@@ -8,6 +8,13 @@
   dependencies:
     tslib "^1.9.0"
 
+"@angular/compiler@^7.2.5":
+  version "7.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-7.2.5.tgz#4ee2dd429835e7b8d9859ec6b6c3c4a57c5408d0"
+  integrity sha512-/41ehOSupAA+uc32XHmN5jOvqmb4A4D+V+MXDmnlYVaYAYZrGf3AS+1RJuBy5cIUGQ1Nv+Nbj4Y7X/ydb6ncOQ==
+  dependencies:
+    tslib "^1.9.0"
+
 "@angular/core@^6.0.0":
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-6.1.2.tgz#412dd32a91ec1d5d6db508babbb36e9799235d8d"
@@ -1727,6 +1734,13 @@ needle@^2.2.1:
 neo-async@^2.5.0:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.1.tgz#acb909e327b1e87ec9ef15f41b8a269512ad41ee"
+
+ngx-toastr@^9.1.2:
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/ngx-toastr/-/ngx-toastr-9.1.2.tgz#2e59cfc02255f94556cfe3690a36c57a6a209796"
+  integrity sha512-XhK3xA73ueF+YZawtqKs6+FQ1OMdx+EzCPihNTMSSXDthglfcgzDzia/OMSGjhx0h7/AK4N/BAbFau9L5RqVDg==
+  dependencies:
+    tslib "^1.9.0"
 
 node-libs-browser@^2.0.0:
   version "2.1.0"

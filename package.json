@@ -19,6 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "@angular/common": "^6.0.0",
+    "@angular/compiler": "^7.2.5",
     "@angular/core": "^6.0.0",
     "@angular/forms": "^6.0.0",
     "@angular/platform-browser": "6.0.0",
@@ -27,6 +28,7 @@
     "apply-loader": "^2.0.0",
     "awesome-typescript-loader": "^3.1.2",
     "electron": "^1.6.11",
+    "ngx-toastr": "^9.1.2",
     "pug": "^2.0.0-rc.3",
     "pug-loader": "^2.3.0",
     "rxjs": "^6.2.1",
