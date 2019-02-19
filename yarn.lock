@@ -30,9 +30,12 @@
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-2.2.2.tgz#07c64badd48b563140eb5a6327b5516bf2226834"
 
-"@types/async-lock@0.0.19":
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/@types/async-lock/-/async-lock-0.0.19.tgz#4bdb7f8d9ac2826588b98068903aedbd9d95dce8"
+"@terminus-term/node-pty@0.8.0-1":
+  version "0.8.0-1"
+  resolved "https://registry.yarnpkg.com/@terminus-term/node-pty/-/node-pty-0.8.0-1.tgz#3cb682f2351179842d195c074acf7d5b54e96ffe"
+  integrity sha512-mEP5zQC/yHtvCbYjdGmwzFkkdTqCe0Jfd1o35yzM9jfGrVpW9qlvo/ZrzyOLSH2tJlYRB5SqfdWlo/LVXrAEYA==
+  dependencies:
+    nan "2.10.0"
 
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.4"
@@ -211,10 +214,6 @@ assign-symbols@^1.0.0:
 async-each@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
-
-async-lock@^1.0.0:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/async-lock/-/async-lock-1.1.3.tgz#e47f1cbb6bec765b73e27ed8961d58006457ec08"
 
 async@^2.1.2:
   version "2.6.1"
@@ -960,11 +959,12 @@ find-up@^1.0.0:
     path-exists "^2.0.0"
     pinkie-promise "^2.0.0"
 
-font-manager@0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/font-manager/-/font-manager-0.2.2.tgz#18a1c5b6ec7f91e22a17c71cbbaa0ea4e68e3a44"
+font-manager@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/font-manager/-/font-manager-0.3.0.tgz#9efdc13e521a3d8752e7ab56c3938818043a311f"
+  integrity sha512-6N3pzO+9kxE3yD9c4VN7reg5fqgFvjcUdxZmwauRzsExaeKRu0APfEi3DOISFakokybgKlZcLFQHawwc2TMpQQ==
   dependencies:
-    nan "~2.2.0"
+    nan ">=2.10.0"
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -1158,9 +1158,10 @@ hosted-git-info@^2.1.4:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.7.1.tgz#97f236977bd6e125408930ff6de3eec6281ec047"
 
-hterm-umdjs@1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/hterm-umdjs/-/hterm-umdjs-1.1.3.tgz#8b57bcaded5ba9541d6c8e32a82b34abb93e885e"
+hterm-umdjs@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/hterm-umdjs/-/hterm-umdjs-1.4.1.tgz#0cd5352eaf927c70b83c36146cf2c2a281dba957"
+  integrity sha512-r5JOmdDK1bZCmp3cKcuGRLVeum33H+pzD119ZxmQou+QUVe6SAVSz03HvKWVhM2Ao1Biv+fkhFDmnsaRPq0tFg==
 
 http-signature@~1.2.0:
   version "1.2.0"
@@ -1545,6 +1546,13 @@ loud-rejection@^1.0.0:
     currently-unhandled "^0.4.1"
     signal-exit "^3.0.0"
 
+macos-native-processlist@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/macos-native-processlist/-/macos-native-processlist-1.0.0.tgz#1dcf1fac554e057f90c6451c39420e065d186a68"
+  integrity sha512-FYA5DzCBvt+1wcCR8iFoCW2zZ8GZXtR6Ee/kpC9gVlqvEcM2ooma71KV8EIP2VaM+v2HOQAVvNoKSmFBd4z8dQ==
+  dependencies:
+    nan "^2.10.0"
+
 map-cache@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"
@@ -1683,17 +1691,14 @@ mz@^2.6.0:
     object-assign "^4.0.1"
     thenify-all "^1.0.0"
 
-nan@2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.5.0.tgz#aa8f1e34531d807e9e27755b234b4a6ec0c152a8"
-
-nan@^2.9.2:
+nan@2.10.0, nan@^2.9.2:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.10.0.tgz#96d0cd610ebd58d4b4de9cc0c6828cda99c7548f"
 
-nan@~2.2.0:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.2.1.tgz#d68693f6b34bb41d66bc68b3a4f9defc79d7149b"
+nan@>=2.10.0, nan@^2.10.0:
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.12.1.tgz#7b1aa193e9aa86057e3c7bbd0ac448e770925552"
+  integrity sha512-JY7V6lRkStKcKTvHO5NVSQRv+RV+FIL5pvDoLiAtSL9pKlC5x9PKQcZDsq7m4FO4d57mkhC6Z+QhAh3Jdk5JFw==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -1765,12 +1770,6 @@ node-pre-gyp@^0.10.0:
     rimraf "^2.6.1"
     semver "^5.3.0"
     tar "^4"
-
-node-pty@0.6.8:
-  version "0.6.8"
-  resolved "https://registry.yarnpkg.com/node-pty/-/node-pty-0.6.8.tgz#a7b145397bef23a719128a75b20d4821726dfe90"
-  dependencies:
-    nan "2.5.0"
 
 nopt@^4.0.1:
   version "4.0.1"
@@ -2645,27 +2644,29 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
 
-terminus-core@^1.0.0-alpha.49:
-  version "1.0.0-alpha.49"
-  resolved "https://registry.yarnpkg.com/terminus-core/-/terminus-core-1.0.0-alpha.49.tgz#89d2570f49fe8dff2d2219b131055996845c4781"
+terminus-core@^1.0.68-c2-g5142d12:
+  version "1.0.68-c2-g5142d12"
+  resolved "https://registry.yarnpkg.com/terminus-core/-/terminus-core-1.0.68-c2-g5142d12.tgz#9c081570f8a72083b98a14bc5212ea2267c2ee14"
+  integrity sha512-jz4P+UXDHEJnFjdSxyvKdhTPABUtKYw8uAWkQ7utubS+EyfMvMTNBpxDwt3ZZ6PRuXGiFBYwQZSnQItw//tNVg==
   dependencies:
     deepmerge "^1.5.0"
     js-yaml "^3.9.0"
     winston "^2.4.0"
 
-terminus-terminal@^1.0.0-alpha.23-8-gcdc7daf:
-  version "1.0.0-alpha.23-8-gcdc7daf"
-  resolved "https://registry.yarnpkg.com/terminus-terminal/-/terminus-terminal-1.0.0-alpha.23-8-gcdc7daf.tgz#a8b95cbe9e66b61d9145a00872b8c3d21580fb32"
+terminus-terminal@^1.0.68-c17-g8b64a81:
+  version "1.0.68-c17-g8b64a81"
+  resolved "https://registry.yarnpkg.com/terminus-terminal/-/terminus-terminal-1.0.68-c17-g8b64a81.tgz#02dc48066a2193667ec1af83fe6c9239770fedbc"
+  integrity sha512-v61PFEad77Y0MIgVn+lr73daYZv4Hr9kJaoIlqvlbnUGfRFILoyBSJDMk3OZQZkx7lmif8dR1a9F7NM1uUyfcA==
   dependencies:
-    "@types/async-lock" "0.0.19"
-    async-lock "^1.0.0"
-    font-manager "0.2.2"
-    hterm-umdjs "1.1.3"
+    "@terminus-term/node-pty" "0.8.0-1"
+    font-manager "0.3.0"
+    hterm-umdjs "1.4.1"
     mz "^2.6.0"
-    node-pty "0.6.8"
     ps-node "^0.1.6"
     runes "^0.4.2"
-    winreg "^1.2.3"
+  optionalDependencies:
+    macos-native-processlist "^1.0.0"
+    windows-process-tree "^0.2.3"
 
 thenify-all@^1.0.0:
   version "1.6.0"
@@ -2918,9 +2919,12 @@ window-size@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.0.tgz#5438cd2ea93b202efa3a19fe8887aee7c94f9c9d"
 
-winreg@^1.2.3:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/winreg/-/winreg-1.2.4.tgz#ba065629b7a925130e15779108cf540990e98d1b"
+windows-process-tree@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/windows-process-tree/-/windows-process-tree-0.2.3.tgz#6b781f0a320e8a0d6434c9399add4389c709cf6e"
+  integrity sha512-SzPJSubVVsToz1g5lr2P+4mQT70gvJ9u/nlnpfkOeQcAhOuhKz5DiO1TARgR0OnVsv21LPzxbA2m/4JQkGh1wA==
+  dependencies:
+    nan "^2.10.0"
 
 winston@^2.4.0:
   version "2.4.3"

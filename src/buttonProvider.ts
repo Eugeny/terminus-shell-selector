@@ -3,9 +3,9 @@ import { first } from 'rxjs/operators'
 import { Injectable, Inject } from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
-import { HotkeysService, ToolbarButtonProvider, IToolbarButton } from 'terminus-core'
+import { HotkeysService, ToolbarButtonProvider, IToolbarButton, ConfigService } from 'terminus-core'
 import { IShell, ShellProvider, TerminalService } from 'terminus-terminal'
-import { SelectorModalComponent } from './components/selectorModal.component'
+import { SelectorModalComponent, Item } from './components/selectorModal.component'
 
 @Injectable()
 export class ButtonProvider extends ToolbarButtonProvider {
@@ -13,6 +13,7 @@ export class ButtonProvider extends ToolbarButtonProvider {
 
     constructor (
         private terminal: TerminalService,
+        private config: ConfigService,
         private ngbModal: NgbModal,
         private domSanitizer: DomSanitizer,
         @Inject(ShellProvider) shellProviders: ShellProvider[],
@@ -33,9 +34,17 @@ export class ButtonProvider extends ToolbarButtonProvider {
     activate () {
         this.shells$.pipe(first()).subscribe(shells => {
             let modal = this.ngbModal.open(SelectorModalComponent)
-            modal.componentInstance.shells = shells
-            modal.result.then(shell => {
-                this.terminal.openTab(shell)
+            modal.componentInstance.items = [
+                ...this.config.store.terminal.profiles.map(profile => ({ profile, name: profile.name })),
+                ...shells.map(shell => ({ shell, name: shell.name })),
+            ]
+            modal.result.then((item: Item) => {
+                if (item.shell) {
+                    this.terminal.openTab(item.shell)
+                }
+                if (item.profile) {
+                    this.terminal.openTabWithOptions(item.profile.sessionOptions)
+                }
             })
         })
     }
