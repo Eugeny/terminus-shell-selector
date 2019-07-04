@@ -1,10 +1,10 @@
 import { Component, Input, HostListener } from '@angular/core'
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
-import { IShell, Profile } from 'terminus-terminal'
+import { Shell, Profile } from 'terminus-terminal'
 
 export interface Item {
     name: string
-    shell?: IShell
+    shell?: Shell
     profile?: Profile
 }
 @Component({

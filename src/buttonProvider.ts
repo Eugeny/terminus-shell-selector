@@ -1,21 +1,19 @@
 import { AsyncSubject } from 'rxjs'
 import { first } from 'rxjs/operators'
 import { Injectable, Inject } from '@angular/core'
-import { DomSanitizer } from '@angular/platform-browser'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
-import { HotkeysService, ToolbarButtonProvider, IToolbarButton, ConfigService } from 'terminus-core'
-import { IShell, ShellProvider, TerminalService } from 'terminus-terminal'
+import { HotkeysService, ToolbarButtonProvider, ToolbarButton, ConfigService } from 'terminus-core'
+import { Shell, ShellProvider, TerminalService } from 'terminus-terminal'
 import { SelectorModalComponent, Item } from './components/selectorModal.component'
 
 @Injectable()
 export class ButtonProvider extends ToolbarButtonProvider {
-    private shells$ = new AsyncSubject<IShell[]>()
+    private shells$ = new AsyncSubject<Shell[]>()
 
     constructor (
         private terminal: TerminalService,
         private config: ConfigService,
         private ngbModal: NgbModal,
-        private domSanitizer: DomSanitizer,
         @Inject(ShellProvider) shellProviders: ShellProvider[],
         hotkeys: HotkeysService,
     ) {
@@ -40,7 +38,7 @@ export class ButtonProvider extends ToolbarButtonProvider {
             ]
             modal.result.then((item: Item) => {
                 if (item.shell) {
-                    this.terminal.openTab(item.shell)
+                    this.terminal.openTabWithOptions(this.terminal.optionsFromShell(item.shell))
                 }
                 if (item.profile) {
                     this.terminal.openTabWithOptions(item.profile.sessionOptions)
@@ -49,9 +47,9 @@ export class ButtonProvider extends ToolbarButtonProvider {
         })
     }
 
-    provide (): IToolbarButton[] {
+    provide (): ToolbarButton[] {
         return [{
-            icon: this.domSanitizer.bypassSecurityTrustHtml(require('./icons/list.svg')),
+            icon: require('./icons/list.svg'),
             weight: 5,
             title: 'Select shell',
             touchBarNSImage: 'NSTouchBarIconViewTemplate',
