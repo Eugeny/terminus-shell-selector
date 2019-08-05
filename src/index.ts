@@ -6,11 +6,13 @@ import { ButtonProvider } from './buttonProvider'
 import { SelectorModalComponent } from './components/selectorModal.component'
 import { ShellSelectorConfigProvider } from './config'
 import { ShellSelectorHotkeyProvider } from './hotkeys'
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
     imports: [
         NgbModule,
         CommonModule,
+        FormsModule
     ],
     providers: [
         { provide: ToolbarButtonProvider, useClass: ButtonProvider, multi: true },

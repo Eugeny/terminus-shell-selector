@@ -1,8 +1,15 @@
 .modal-body
+    .input-group.mb-4
+        .input-group-prepend
+            .input-group-text
+                i.fas.fa-fw.fa-search
+        input.form-control(type='search', placeholder='Search', [(ngModel)]='shellFilter', (ngModelChange)='onSearch()')
+
     .list-group
         a.list-group-item.list-group-item-action(
-            *ngFor='let item of items; let i = index', 
-            (click)='modalInstance.close(item)'
-        ) 
+            *ngFor='let item of filteredItems; let i = index',
+            (click)='modalInstance.close(item)',
+            [class.active]='selectedOption == i'
+        )
             strong.mr-2(*ngIf='i < 10') {{i}}
             span {{item.name}}
